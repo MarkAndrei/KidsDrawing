@@ -1,0 +1,93 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    padding: 20px 0;
+    color: #0056b3;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #ccc;  /* Light gray border for the container */
+    border-radius: 8px;       /* Optional: Rounded corners for the container */
+}
+
+.gallery-container a { /* Apply border and padding to the link, which is the cell */
+    display: block;        /* Make the link a block element for proper size/border */
+    border: 1px solid #ddd;  /* Light gray border for each cell */
+    border-radius: 8px;     /* Optional: Rounded corners for cells */
+    overflow: hidden;      /* Important: Prevent image overflow from container */
+    padding: 5px;          /* Add some padding around the image */
+    text-align: center;  /* To center the image if it's smaller than the container */
+	 position: relative; /* Needed for positioning the title */
+}
+
+.drawing-title {
+//position: absolute;
+//top: 5px;
+//left: 5px;
+	font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10; /* Ensure the text is above the image */
+}
+
+.thumbnail {
+    max-width: 100%; /* Use 100% width within its container */
+    height: 100%; /* Use 100% height within its container */
+    object-fit: contain; /* Maintain aspect ratio and show the *entire* image */
+    border-radius: 8px;  /* Apply border radius to the *image*, not the link */
+    display: block;  /* To prevent the images from showing up inline-block, for the container to behave properly */
+    margin: auto;  /* Centers the image if it's too small */
+}
+
+.ai-images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5px;
+    padding: 5px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.ai-images-container img {
+    width: 100%;
+	max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.original-drawing {
+    display: block;
+	width: auto;
+    max-width: 100%;
+    height: 450px;
+    margin: 20px auto;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+  text-align: center;
+}
