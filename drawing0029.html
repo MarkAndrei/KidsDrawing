@@ -27,5 +27,28 @@
 
     <p><a href="index.html">retour à la page principale</a></p>
 
+
+<div class="lightbox" id="lightbox">
+    <img src="" alt="Zoomed Image">
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const images = document.querySelectorAll('.ai-images-container img');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = "";
+    });
+</script>
+
 </body>
 </html>
