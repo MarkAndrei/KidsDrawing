@@ -1,95 +1,136 @@
+/* Base styles */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fdfdfd;
     color: #333;
 }
 
+/* Typography */
 h1, h2 {
     text-align: center;
-    //padding: 20px 0;
-    color: #0056b3;
+    color: #004085;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
+/* Main gallery container */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    border: 1px solid #ccc;  /* Light gray border for the container */
-    border-radius: 8px;       /* Optional: Rounded corners for the container */
 }
 
-.gallery-container a { /* Apply border and padding to the link, which is the cell */
-    display: block;        /* Make the link a block element for proper size/border */
-    border: 1px solid #ddd;  /* Light gray border for each cell */
-    border-radius: 8px;     /* Optional: Rounded corners for cells */
-    overflow: hidden;      /* Important: Prevent image overflow from container */
-    padding: 5px;          /* Add some padding around the image */
-    text-align: center;  /* To center the image if it's smaller than the container */
-	 position: relative; /* Needed for positioning the title */
+/* Each card (a link with an image + title) */
+.gallery-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.gallery-container a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Drawing number */
 .drawing-title {
-//position: absolute;
-//top: 5px;
-//left: 5px;
-	font-weight: bold;
-color: #0056b3;
-    //background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    padding: 1px 1px;
-    border-radius: 4px;
-    font-size: 1.3em; /* Adjust the font size as needed */
-    z-index: 10; /* Ensure the text is above the image */
+    font-weight: bold;
+    color: #004085;
+    margin-bottom: 8px;
+    font-size: 1.2em;
 }
 
+/* Thumbnails - consistent cell size despite different image dimensions */
 .thumbnail {
-    max-width: 100%; /* Use 100% width within its container */
-    height: 100%; /* Use 100% height within its container */
-    object-fit: contain; /* Maintain aspect ratio and show the *entire* image */
-    border-radius: 8px;  /* Apply border radius to the *image*, not the link */
-    display: block;  /* To prevent the images from showing up inline-block, for the container to behave properly */
-    margin: auto;  /* Centers the image if it's too small */
-}
-
-.ai-images-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 5px;
-    padding: 5px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.ai-images-container img {
     width: 100%;
-	max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 6px;
+    background-color: #fafafa;
 }
 
+/* Drawing detail page - original image */
 .original-drawing {
     display: block;
-	//width: auto;
     max-width: 100%;
-    height: 420px;
-    max-height: 100%;	
-   margin: 0px auto;
+    width: 700px;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 10px;
 }
 
+/* AI interpretations grid */
+.ai-images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* AI image styling */
+.ai-images-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Links */
 a {
     text-decoration: none;
-    color: #007bff;
+    color: #0069d9;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
+/* Center footer links */
 p {
-  text-align: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Responsive fine-tuning for mobile */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        max-width: 100%;
+        padding: 10px;
+        gap: 16px;
+    }
+
+    .original-drawing {
+        width: 100%;
+        max-width: 95%;
+        max-height: 400px;
+    }
+
+    .ai-images-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.3em;
+    }
+
+    .drawing-title {
+        font-size: 1em;
+    }
 }
